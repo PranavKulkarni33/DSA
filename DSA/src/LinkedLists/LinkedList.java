@@ -34,8 +34,19 @@ public class LinkedList {
     public void printList() {
         Node temp = head;
         while (temp != null) {
-            System.out.println(temp.value);
-            temp = temp.next;
+            if(length == 1){
+                System.out.println(temp.value);
+                temp = temp.next;
+            }
+            else if (temp.next == null){
+                System.out.print(temp.value);
+                temp = temp.next;
+            }
+            else{
+                System.out.print(temp.value + " -> ");
+                temp = temp.next;
+            }
+
         }
     }
 
@@ -48,12 +59,26 @@ public class LinkedList {
             System.out.println("Tail: " + tail.value);
         }
         System.out.println("Length:" + length);
-        System.out.println("\nLinked List:");
+        System.out.print("Linked List: ");
         if (length == 0) {
             System.out.println("empty");
         } else {
             printList();
         }
+        System.out.println();
+    }
+
+    public void append(int value){
+        Node newNode = new Node(value);
+        if( length == 0){
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else{
+            tail.next = newNode;
+            tail = newNode;
+        }
+        length++;
     }
 }
 

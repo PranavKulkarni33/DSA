@@ -5,6 +5,9 @@ public class Main {
 
         LinkedList myLinkedList = new LinkedList(4);
         myLinkedList.printAll();
+        myLinkedList.append(3);
+        myLinkedList.append(2);
+        myLinkedList.printAll();
 
     }
 }
